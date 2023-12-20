@@ -22,6 +22,7 @@ export const CartContext = createContext({
   increaseCartItem: (id) => {},
   decreaseCartItem: (id) => {},
   removeItemFromCart: (id) => {},
+  checkOutAllCartItem: () => {}
 });
 
 export const CartProvider = CartContext.Provider;

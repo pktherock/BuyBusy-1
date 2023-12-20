@@ -83,6 +83,20 @@ function CartContextProvider({ children }) {
     }
   };
 
+  const checkOutAllCartItem = async () => {
+    setLoading(true);
+    try {
+      await cartService.checkOutCartItems(uid, cart);
+      alertService.success("Order successfully placed!");
+      
+    } catch (error) {
+      console.log("Error while checkout", error);
+      alertService.error(error.code);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     setLoading(true);
     let unsubscribe;
@@ -128,6 +142,7 @@ function CartContextProvider({ children }) {
         increaseCartItem,
         decreaseCartItem,
         removeItemFromCart,
+        checkOutAllCartItem,
       }}
     >
       {loading && (
