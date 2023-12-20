@@ -8,7 +8,7 @@ import { productService } from "../../../services";
 import { useCart } from "../../cart";
 
 function ProductContextProvider({ children }) {
-  const [product, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const { addItemToCart } = useCart();
@@ -22,7 +22,7 @@ function ProductContextProvider({ children }) {
     async function fetchProduct() {
       try {
         const products = await productService.getAllProduct();
-        setProduct(products);
+        setProducts(products);
         console.log("All Products", products);
       } catch (error) {
         console.log("Error while fetching Product!", error);
@@ -36,7 +36,7 @@ function ProductContextProvider({ children }) {
   }, []);
 
   return (
-    <ProductProvider value={{ product, addToCart }}>
+    <ProductProvider value={{ products, addToCart }}>
       {loading && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-black bg-opacity-20">
           <RingLoader
