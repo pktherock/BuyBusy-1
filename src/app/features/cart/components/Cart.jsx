@@ -12,7 +12,7 @@ function Cart() {
   return (
     <Container>
       <ArrowUturnLeftIcon
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/products")}
         className="h-12 w-12 p-3 font-bold bg-white border rounded-full shadow-xl hover:shadow-md hover:bg-gray-400"
       />
 
