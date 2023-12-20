@@ -1,15 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../contexts/auth/AuthContext";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  CodeBracketIcon,
-} from "@heroicons/react/24/solid";
+import { Bars3Icon, XMarkIcon, HomeIcon } from "@heroicons/react/24/solid";
+
+import { ShoppingCartIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
+
 import { useState } from "react";
 
 function Header() {
   const { user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const cartCount = 1; // todo
 
   const navigate = useNavigate();
 
@@ -30,10 +31,29 @@ function Header() {
         <div className="inline-flex items-center space-x-2">
           <span>
             <Link to="/">
-              <CodeBracketIcon className="h-6 w-6 cursor-pointer" />
+              <HomeIcon className="h-6 w-6 cursor-pointer" />
             </Link>
           </span>
           <span className="font-bold">React Fire Auth with CART</span>
+        </div>
+        <div className="space-x-4 items-center hidden lg:inline-flex">
+          <NavLink className="inline-flex items-center">
+            <ShoppingBagIcon className="h-10 w-10 text-blue-500 cursor-pointer" />
+            <span className="text-xl font-semibold">My orders</span>
+          </NavLink>
+
+          <NavLink className="inline-flex items-center">
+            <div className="relative">
+              <ShoppingCartIcon className="w-10 h-10 text-purple-500 cursor-pointer" />
+              {/* Show cart count */}
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-indigo-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-xs font-bold">
+                  {cartCount}
+                </span>
+              )}
+            </div>
+            <span className="text-xl font-semibold">Cart</span>
+          </NavLink>
         </div>
         <div className="hidden lg:block">
           {user && <span className="font-bold pr-3">{user.displayName}</span>}
@@ -55,9 +75,9 @@ function Header() {
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center space-x-2">
                     <span>
-                      <CodeBracketIcon className="h-6 w-6 cursor-pointer" />
+                      <HomeIcon className="h-6 w-6 cursor-pointer" />
                     </span>
-                    <span className="font-bold">React Fire Auth</span>
+                    <span className="font-bold">React Fire Auth with CART</span>
                   </div>
                   <div className="-mr-2">
                     <button
@@ -69,6 +89,25 @@ function Header() {
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
+                </div>
+                <div className="space-x-4 flex items-center justify-between px-5 py-2 shadow">
+                  <NavLink className="inline-flex items-center">
+                    <ShoppingBagIcon className="h-10 w-10 text-blue-500 cursor-pointer" />
+                    <span className="text-xl font-semibold">My orders</span>
+                  </NavLink>
+
+                  <NavLink className="inline-flex items-center">
+                    <div className="relative">
+                      <ShoppingCartIcon className="w-10 h-10 text-purple-500 cursor-pointer" />
+                      {/* Show cart count */}
+                      {cartCount > 0 && (
+                        <span className="absolute -top-1 -right-1 bg-indigo-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-xs font-bold">
+                          {cartCount}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-xl font-semibold">Cart</span>
+                  </NavLink>
                 </div>
                 {user && <span>{user.displayName}</span>}
                 <button

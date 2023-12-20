@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CodeBracketIcon } from "@heroicons/react/24/solid";
+import { ShoppingBagIcon } from "@heroicons/react/24/solid";
 
 function Footer() {
   return (
@@ -9,7 +9,7 @@ function Footer() {
           <div className="w-auto p-4">
             <Link to="/">
               <div className="inline-flex items-center">
-                <CodeBracketIcon className="h-6 w-6 cursor-pointer" />
+                <ShoppingBagIcon className="h-6 w-6 cursor-pointer" />
                 <span className="ml-4 text-lg font-bold">
                   React Fire Auth with CART
                 </span>

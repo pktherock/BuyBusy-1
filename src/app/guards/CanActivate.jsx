@@ -16,7 +16,7 @@ function CanActivate({ children, authentication = false }) {
     setLoader(false);
   }, [authentication, user, navigate]);
 
-  return loader ? <h1>Loading...</h1> : <>{children}</>;
+  return !loader && user ? children : <h1>Loading...</h1>;
 }
 
 CanActivate.propTypes = {
