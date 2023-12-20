@@ -4,12 +4,15 @@ import { ToastContainer } from "react-toastify";
 import appRoutes from "./app.routes";
 import { AuthContextProvider } from "./contexts";
 import "./App.css";
+import { CartContextProvider } from "./features/cart";
 
 function App() {
   return (
     <AuthContextProvider>
       <ToastContainer newestOnTop />
-      <RouterProvider router={appRoutes} />
+      <CartContextProvider>
+        <RouterProvider router={appRoutes} />
+      </CartContextProvider>
     </AuthContextProvider>
   );
 }

@@ -6,6 +6,7 @@ import AuthRoutes from "./features/auth/auth.routes";
 import HomeRoutes from "./features/home/home.routes";
 import CanActivate from "./guards/CanActivate";
 import { CartRoutes } from "./features/cart";
+import { ProductRoutes } from "./features/product";
 
 const appRoutes = createBrowserRouter([
   {
@@ -30,6 +31,18 @@ const appRoutes = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [...HomeRoutes],
   },
+
+  {
+    path: "/products",
+    element: (
+      <CanActivate authentication>
+        <PrivateLayout />
+      </CanActivate>
+    ),
+    errorElement: <ErrorPage />,
+    children: [...ProductRoutes],
+  },
+
   {
     path: "/cart",
     element: (

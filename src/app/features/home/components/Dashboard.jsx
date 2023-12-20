@@ -19,7 +19,7 @@ function Dashboard() {
               type="button"
               className="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
-              <Link to="/cart">View CART Feature</Link>
+              <Link to="/products">View CART Feature</Link>
             </button>
             <button
               type="button"

@@ -14,11 +14,11 @@ import {
 } from "firebase/auth";
 
 class AuthService {
-  getCurrentUser = async () => {
+  getCurrentUser = async () => { // ! todo
     return new Promise((resolve, reject) => {
       auth.onAuthStateChanged({
         next: (auth) => {
-          console.log(auth);
+          // console.log(auth);
           resolve(auth);
         },
         error: (error) => {

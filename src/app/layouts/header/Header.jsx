@@ -5,12 +5,15 @@ import { Bars3Icon, XMarkIcon, HomeIcon } from "@heroicons/react/24/solid";
 import { ShoppingCartIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
 
 import { useState } from "react";
+import { useCart } from "../../features/cart";
 
 function Header() {
   const { user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const cartCount = 1; // todo
+  const {
+    cart: { cartItems },
+  } = useCart();
 
   const navigate = useNavigate();
 
@@ -46,9 +49,9 @@ function Header() {
             <div className="relative">
               <ShoppingCartIcon className="w-10 h-10 text-purple-500 cursor-pointer" />
               {/* Show cart count */}
-              {cartCount > 0 && (
+              {cartItems.length > 0 && (
                 <span className="absolute -top-1 -right-1 bg-indigo-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-xs font-bold">
-                  {cartCount}
+                  {cartItems.length}
                 </span>
               )}
             </div>
@@ -100,9 +103,9 @@ function Header() {
                     <div className="relative">
                       <ShoppingCartIcon className="w-10 h-10 text-purple-500 cursor-pointer" />
                       {/* Show cart count */}
-                      {cartCount > 0 && (
+                      {cartItems.length > 0 && (
                         <span className="absolute -top-1 -right-1 bg-indigo-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-xs font-bold">
-                          {cartCount}
+                          {cartItems.length}
                         </span>
                       )}
                     </div>

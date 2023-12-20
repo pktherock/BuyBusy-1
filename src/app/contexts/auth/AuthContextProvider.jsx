@@ -103,7 +103,6 @@ function AuthContextProvider({ children }) {
     setLoading(true);
     async function fetchUserData() {
       const user = await authService.getCurrentUser();
-      console.log(user);
       setUser(user);
       setLoading(false);
     }
