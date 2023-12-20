@@ -7,6 +7,7 @@ import HomeRoutes from "./features/home/home.routes";
 import CanActivate from "./guards/CanActivate";
 import { CartRoutes } from "./features/cart";
 import { ProductRoutes } from "./features/product";
+import { OrderRoutes } from "./features/order";
 
 const appRoutes = createBrowserRouter([
   {
@@ -52,6 +53,17 @@ const appRoutes = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [...CartRoutes],
+  },
+
+  {
+    path: "/orders",
+    element: (
+      <CanActivate authentication>
+        <PrivateLayout />
+      </CanActivate>
+    ),
+    errorElement: <ErrorPage />,
+    children: [...OrderRoutes],
   },
 ]);
 

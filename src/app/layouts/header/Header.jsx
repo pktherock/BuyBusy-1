@@ -40,14 +40,24 @@ function Header() {
           <span className="font-bold">React Fire Auth with CART</span>
         </div>
         <div className="space-x-4 items-center hidden lg:inline-flex">
-          <NavLink className="inline-flex items-center">
-            <ShoppingBagIcon className="h-10 w-10 text-blue-500 cursor-pointer" />
+          <NavLink
+            to="/orders"
+            className={({ isActive }) =>
+              `inline-flex items-center ${isActive ? "text-green-400" : ""}`
+            }
+          >
+            <ShoppingBagIcon className="h-10 w-10 text-blue-500 cursor-pointer hover:text-blue-400" />
             <span className="text-xl font-semibold">My orders</span>
           </NavLink>
 
-          <NavLink className="inline-flex items-center">
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              `inline-flex items-center ${isActive ? "text-green-400" : ""}`
+            }
+          >
             <div className="relative">
-              <ShoppingCartIcon className="w-10 h-10 text-purple-500 cursor-pointer" />
+              <ShoppingCartIcon className="w-10 h-10 text-purple-500 cursor-pointer hover:text-purple-400" />
               {/* Show cart count */}
               {cartItems.length > 0 && (
                 <span className="absolute -top-1 -right-1 bg-indigo-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-xs font-bold">
@@ -78,7 +88,9 @@ function Header() {
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center space-x-2">
                     <span>
-                      <HomeIcon className="h-6 w-6 cursor-pointer" />
+                      <Link to="/">
+                        <HomeIcon className="h-6 w-6 cursor-pointer" />
+                      </Link>
                     </span>
                     <span className="font-bold">React Fire Auth with CART</span>
                   </div>
@@ -94,14 +106,28 @@ function Header() {
                   </div>
                 </div>
                 <div className="space-x-4 flex items-center justify-between px-5 py-2 shadow">
-                  <NavLink className="inline-flex items-center">
-                    <ShoppingBagIcon className="h-10 w-10 text-blue-500 cursor-pointer" />
+                  <NavLink
+                    to="/orders"
+                    className={({ isActive }) =>
+                      `inline-flex items-center ${
+                        isActive ? "text-green-400" : ""
+                      }`
+                    }
+                  >
+                    <ShoppingBagIcon className="h-10 w-10 text-blue-500 cursor-pointer hover:text-blue-400" />
                     <span className="text-xl font-semibold">My orders</span>
                   </NavLink>
 
-                  <NavLink className="inline-flex items-center">
+                  <NavLink
+                    to="/cart"
+                    className={({ isActive }) =>
+                      `inline-flex items-center ${
+                        isActive ? "text-green-400" : ""
+                      }`
+                    }
+                  >
                     <div className="relative">
-                      <ShoppingCartIcon className="w-10 h-10 text-purple-500 cursor-pointer" />
+                      <ShoppingCartIcon className="w-10 h-10 text-purple-500 cursor-pointer hover:text-purple-300" />
                       {/* Show cart count */}
                       {cartItems.length > 0 && (
                         <span className="absolute -top-1 -right-1 bg-indigo-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-xs font-bold">

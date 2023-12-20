@@ -58,6 +58,9 @@ function CartContextProvider({ children }) {
     setLoading(true);
     try {
       await cartService.decrementItem(id, uid);
+      if (cart.cartItems.find((cartItem) => cartItem.quantity <= 1)) {
+        await removeItemFromCart(id);
+      }
       alertService.success("Item Decreased successfully!");
     } catch (error) {
       console.log("Error while decrement of cart item", error);
@@ -90,7 +93,7 @@ function CartContextProvider({ children }) {
           unsubscribe = onSnapshot(cartRef, (snapShot) => {
             let total = 0;
             const cartItems = snapShot.docs.map((doc) => {
-              total += doc.data().productInfo.price;
+              total += doc.data().productInfo.price * doc.data().quantity;
               return {
                 id: doc.id,
                 ...doc.data(),
