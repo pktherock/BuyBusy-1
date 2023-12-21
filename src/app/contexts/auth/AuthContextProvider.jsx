@@ -28,7 +28,7 @@ function AuthContextProvider({ children }) {
     setLoading(true);
     try {
       const user = await authService.login(email, password);
-      console.log(user);
+      // console.log(user);
       setUser(user);
       alertService.success("Logged In successfully");
     } catch (error) {

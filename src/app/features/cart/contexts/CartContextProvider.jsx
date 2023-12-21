@@ -11,7 +11,6 @@ function CartContextProvider({ children }) {
   const [cart, setCart] = useState({ total: 0, cartItems: [] });
 
   const uid = useAuth()?.user?.uid;
-  console.log(uid);
 
   const addItemToCart = async (item) => {
     setLoading(true);

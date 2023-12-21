@@ -3,7 +3,7 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 
 function PrivateLayout() {
-  console.log("I am private layout");
+  // console.log("I am private layout");
   return (
     <>
       <Header />

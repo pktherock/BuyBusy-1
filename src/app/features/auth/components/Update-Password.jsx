@@ -43,7 +43,7 @@ function UpdatePassword() {
     if (newPassword !== confirmPassword) {
       return alertService.warn("password is not matching");
     }
-    console.log(password, confirmPassword);
+    // console.log(password, confirmPassword);
     updatePassword(password, confirmPassword);
     // todo
     navigate("/home")

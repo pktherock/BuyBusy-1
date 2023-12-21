@@ -3,7 +3,7 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 
 function PublicLayout() {
-  console.log("I am public layout");
+  // console.log("I am public layout");
   return (
     <>
       <Header />

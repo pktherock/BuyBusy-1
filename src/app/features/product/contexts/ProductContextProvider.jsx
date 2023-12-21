@@ -23,7 +23,7 @@ function ProductContextProvider({ children }) {
       try {
         const products = await productService.getAllProduct();
         setProducts(products);
-        console.log("All Products", products);
+        // console.log("All Products", products);
       } catch (error) {
         console.log("Error while fetching Product!", error);
         alertService.error(error.code);
